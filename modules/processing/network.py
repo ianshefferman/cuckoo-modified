@@ -8,6 +8,7 @@ import struct
 import tempfile
 import logging
 from urlparse import urlunparse
+from collections import OrderedDict
 
 try:
     import re2 as re
@@ -75,10 +76,10 @@ class Pcap:
         self.udp_connections_seen = set()
         # List containing all ICMP requests.
         self.icmp_requests = []
-        # List containing all HTTP requests.
-        self.http_requests = {}
-        # List containing all DNS requests.
-        self.dns_requests = {}
+        # Ordered dictionary containing all HTTP requests.
+        self.http_requests = OrderedDict()
+        # Ordered dictionary containing all DNS requests.
+        self.dns_requests = OrderedDict()
         self.dns_answers = set()
         # List containing all SMTP requests.
         self.smtp_requests = []
